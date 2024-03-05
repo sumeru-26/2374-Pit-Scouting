@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <h1>Pit Scouting</h1>
+        <hr>
+        <form id="entry_form">
+            <label for="team_number">Team Number:</label><br>
+            <input type="text" name="team_number" name="team_number"><br><br>
+            <input type="button" value="Generate QR Code" onclick=""><br><br>
+            <input type="button" value="Reset" onclick="reset()">
+        </form>
+        <script src="form_handler.js"></script>
+        <script>
+            function reset() {
+                document.getElementById("entry_form").reset();
+            } 
+        </script>
+    </body>
+</html>
