@@ -5,13 +5,61 @@
 </head>
     <body>
         <h1>Pit Scouting</h1>
-        <hr>
+        <hr><br><br>
         <form id="entry_form">
+
             <label for="team_number">Team Number:</label><br>
-            <input type="text" name="team_number" name="team_number"><br><br>
-            <input type="button" value="Generate QR Code" onclick=""><br><br>
+            <input type="text" id="team_number" name="team_number" placeholder="e.g. 2374"><br><br>
+
+            <p>Drive Train:</p>
+            <input type="radio" id="swerve" name="drivetrain">
+            <label for="swerve">Swerve</label><br>
+            <input type="radio" id="tank" name="drivetrain">
+            <label for="tank">Tank (West Coast)</label><br>
+            <input type="radio" id="mecanum" name="drivetrain">
+            <label for="mecanum">Mecanum</label><br>
+            <input type="radio" id="other" name="drivetrain">
+            <label for="tank">Other</label><br>
+
+            <p>Intake Type:</p>
+            <input type="radio" id="otb" name="intake">
+            <label for="otb">Over the Bumper</label><br>
+            <input type="radio" id="utb" name="intake">
+            <label for="utb">Under the Bumper</label><br>
+
+            <p>Indexing Type:</p>
+            <input type="radio" id="integrated" name="indexing">
+            <label for="integrated">Integrated</label><br>
+            <input type="radio" id="transitional" name="indexing">
+            <label for="transitional">Transitional</label><br>
+
+            <h2>Auto:</h2>
+
+            <label for="autonumber"># of Notes in Auto:</label><br>
+            <input type="number" id="autonumber" name="autonumber" min="0" max="15"><br><br>
+
+            <label for="autonotes">Other Notes About Auto:</label><br>
+            <textarea id="autonotes" name="autonotes" rows="2" cols="50"></textarea>
+            
+            <h2>Endgame:</h2>
+
+            <input type="radio" id="trap" name="climbabil">
+            <label for="trap">Trap</label><br>
+            <input type="radio" id="climb" name="climbabil">
+            <label for="climb">Climb</label><br>
+            <input type="radio" id="none" name="climbabil">
+            <label for="none">None</label><br>
+
+            <h2>Other:</h2>
+
+            <label for="alliancenotes">What are they looking for in an alliance partner?</label><br>
+            <textarea id="alliancenotes" name="alliancenotes" rows="4" cols="50"></textarea>
+
+
+            <br><br><input type="button" value="Generate QR Code" onclick=""><br><br>
             <input type="button" value="Reset" onclick="reset()">
         </form>
+        <br>
         <script src="form_handler.js"></script>
         <script>
             function reset() {
