@@ -10,7 +10,7 @@ function encodeForm() {
 }
 
 function getCheckedId(radioName) {
-    var radio = document.getElementByName(radioName);
+    var radio = document.getElementsByName(radioName);
     for (const ele of radio) {
         if (ele.checked) {
             return ele.id
