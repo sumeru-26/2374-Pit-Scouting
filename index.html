@@ -53,15 +53,13 @@
             <h2>Other:</h2>
 
             <label for="alliancenotes">What are they looking for in an alliance partner?</label><br>
-            <textarea id="alliancenotes" name="alliancenotes" rows="4" cols="50"></textarea>
-
-
-            <br><br><input type="button" value="Generate QR Code" onclick=""><br><br>
-            <input type="button" value="Reset" onclick="reset()">
+            <textarea id="alliancenotes" name="alliancenotes" rows="4" cols="50"></textarea><br><br>
         </form>
-        <button onclick="encodeForm()">test</button>
-        <p id="demo"></p>
-        <br>
+        <button onclick="encodeForm()">Generate QR Code</button><br><br>
+        <div id="qrplaceholder"></div>
+        <p id="encodedstr"></p>
+        <button onclick="reset()">Reset</button>
         <script src="form_handler.js"></script>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     </body>
 </html>

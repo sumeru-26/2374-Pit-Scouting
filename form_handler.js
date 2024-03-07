@@ -1,12 +1,19 @@
 function encodeForm() {
-    var str = document.getElementById("team_number").value + " " +
-        getCheckedId("drivetrain") + " " + getCheckedId("intake") + " " +
-        getCheckedId("indexing") + " " +
-        document.getElementById("autonumber").value + " " +
-        document.getElementById("autonotes").value + " " +
-        getCheckedId("climbabil") + " " +
+    var str = document.getElementById("team_number").value + "^" +
+        getCheckedId("drivetrain") + "^"+
+        getCheckedId("intake") + "^" +
+        getCheckedId("indexing") + "^" +
+        document.getElementById("autonumber").value + "^" +
+        document.getElementById("autonotes").value + "^" +
+        getCheckedId("climbabil") + "^" +
         document.getElementById("alliancenotes").value;
-    document.getElementById("demo").innerHTML = str;
+    document.getElementById("encodedstr").innerHTML = "Encoded String: " + str;
+    strToQr(str);
+}
+
+function strToQr(str) {
+    document.getElementById("qrplaceholder").innerHTML = "";
+    var qrcode = new QRCode(document.getElementById("qrplaceholder"),str);
 }
 
 function getCheckedId(radioName) {
@@ -20,6 +27,8 @@ function getCheckedId(radioName) {
 
 function reset() {
     document.getElementById("entry_form").reset();
+    document.getElementById("qrplaceholder").innerHTML = "";
+    document.getElementById("encodedstr").innerHTML = "";
 }
 
 function test() {
