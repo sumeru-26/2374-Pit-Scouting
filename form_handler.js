@@ -2,7 +2,7 @@ function encodeForm() {
     var str = document.getElementById("team_number").value + "^" +
         getCheckedId("drivetrain") + "^"+
         getCheckedId("intake") + "^" +
-        getCheckedId("indexing") + "^" +
+        getCheckedId("shooter") + "^" +
         document.getElementById("autonumber").value + "^" +
         document.getElementById("autonotes").value + "^" +
         getCheckedId("climbabil") + "^" +
@@ -18,10 +18,12 @@ function strToQr(str) {
 
 function getCheckedId(radioName) {
     var radio = document.getElementsByName(radioName);
+    var i = 0;
     for (const ele of radio) {
         if (ele.checked) {
-            return ele.id
+            return i;
         }
+        i++;
     }
 }
 

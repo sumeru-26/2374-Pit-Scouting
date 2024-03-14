@@ -27,11 +27,13 @@
             <input type="radio" id="utb" name="intake">
             <label for="utb">Under the Bumper</label><br>
 
-            <p>Indexing Type:</p>
-            <input type="radio" id="integrated" name="indexing">
-            <label for="integrated">Integrated</label><br>
-            <input type="radio" id="transitional" name="indexing">
-            <label for="transitional">Transitional</label><br>
+            <p>Shooting Abilities:</p>
+            <input type="radio" id="amp" name="shooter">
+            <label for="amp">Amp</label><br>
+            <input type="radio" id="speaker" name="shooter">
+            <label for="speaker">Speaker</label><br>
+            <input type="radio" id="both" name="shooter">
+            <label for="both">Both</label><br>
 
             <h2>Auto:</h2>
 
@@ -54,6 +56,8 @@
 
             <label for="alliancenotes">What are they looking for in an alliance partner?</label><br>
             <textarea id="alliancenotes" name="alliancenotes" rows="4" cols="50"></textarea><br><br>
+            <label for="other">Other notes:</label><br>
+            <textarea id="other" name="other" rows="4" cols="50"></textarea><br><br>
         </form>
         <button onclick="encodeForm()">Generate QR Code</button><br><br>
         <div id="qrplaceholder"></div>
