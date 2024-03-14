@@ -1,29 +1,33 @@
 function encodeForm() {
-    var str = document.getElementById("team_number").value + "^" +
-        getCheckedId("drivetrain") + "^"+
-        getCheckedId("intake") + "^" +
-        getCheckedId("shooter") + "^" +
-        document.getElementById("autonumber").value + "^" +
-        document.getElementById("autonotes").value + "^" +
-        getCheckedId("climbabil") + "^" +
-        document.getElementById("alliancenotes").value;
-    document.getElementById("encodedstr").innerHTML = "Encoded String: " + str;
-    strToQr(str);
+    const teamNumber = document.getElementById("team_number").value;
+    const drivetrain = getCheckedId("drivetrain");
+    const intake = getCheckedId("intake");
+    const shooter = getCheckedId("shooter");
+    const autonumber = document.getElementById("autonumber").value;
+    const autonotes = document.getElementById("autonotes").value;
+    const climbabil = getCheckedId("climbabil");
+    const alliancenotes = document.getElementById("alliancenotes").value;
+
+    const encodedStr = `${teamNumber}^${drivetrain}^${intake}^${shooter}^${autonumber}^${autonotes}^${climbabil}^${alliancenotes}`;
+
+    document.getElementById("encodedstr").innerHTML = "Encoded String: " + encodedStr;
+    strToQr(encodedStr);
 }
 
 function strToQr(str) {
-    document.getElementById("qrplaceholder").innerHTML = "";
-    var qrcode = new QRCode(document.getElementById("qrplaceholder"),str);
+    const qrPlaceholder = document.getElementById("qrplaceholder");
+    if (qrPlaceholder) {
+        qrPlaceholder.innerHTML = "";
+        new QRCode(qrPlaceholder, str);
+    }
 }
 
 function getCheckedId(radioName) {
-    var radio = document.getElementsByName(radioName);
-    var i = 0;
-    for (const ele of radio) {
-        if (ele.checked) {
+    const radio = document.getElementsByName(radioName);
+    for (let i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
             return i;
         }
-        i++;
     }
 }
 
@@ -35,5 +39,8 @@ function reset() {
 
 function test() {
     const ele = document.getElementById("swerve");
-    document.getElementById("demo").innerHTML = ele.labels[0].textContent + "<br>";
+    const demo = document.getElementById("demo");
+    if (ele && demo) {
+        demo.innerHTML = ele.labels[0].textContent + "<br>";
+    }
 }
