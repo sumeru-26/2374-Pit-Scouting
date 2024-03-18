@@ -8,10 +8,16 @@ function encodeForm() {
     const climbabil = getCheckedId("climbabil");
     const alliancenotes = document.getElementById("alliancenotes").value;
 
-    const encodedStr = `${teamNumber}^${drivetrain}^${intake}^${shooter}^${autonumber}^${autonotes}^${climbabil}^${alliancenotes}`;
+    const rawStr = `${teamNumber}^${drivetrain}^${intake}^${shooter}^${autonumber}^${autonotes}^${climbabil}^${alliancenotes}`;
+    const encodedStr = encode(rawStr);
 
+    document.getElementById("rawstr").innerHTML = "Raw String: " + rawStr;
     document.getElementById("encodedstr").innerHTML = "Encoded String: " + encodedStr;
     strToQr(encodedStr);
+}
+
+function encode(str) {
+    LZMA.compress(str, 1, function on_finish(result,err) {return result}, function on_progress(percent) {});
 }
 
 function strToQr(str) {

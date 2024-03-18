@@ -63,9 +63,11 @@
         </form>
         <button onclick="encodeForm()">Generate QR Code</button><br><br>
         <div id="qrplaceholder"></div>
+        <p id="rawstr"></p>
         <p id="encodedstr"></p>
         <button onclick="reset()">Reset</button>
         <script src="form_handler.js"></script>
         <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lzma@2.3.2/src/lzma-c.js"></script>
     </body>
 </html>
