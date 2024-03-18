@@ -17,13 +17,16 @@ function encodeForm() {
 }
 
 function encode(str) {
+    console.log("Began encoding");
     LZMA.compress(str, 1,
         function (result) {
             document.getElementById("encodedstr").innerHTML = "Encoded String: " + result;
             strToQr(result);
+            console.log("Encoded result: " + result);
         },
         function on_progress(percent) {
             document.getElementById("encodeper").innerHTML = Math.round(percent * 100) + "%";
+            console.log("Encoded " + Math.round(percent * 100) + "%");
         });
 }
 
