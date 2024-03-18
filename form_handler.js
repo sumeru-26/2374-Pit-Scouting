@@ -9,15 +9,22 @@ function encodeForm() {
     const alliancenotes = document.getElementById("alliancenotes").value;
 
     const rawStr = `${teamNumber}^${drivetrain}^${intake}^${shooter}^${autonumber}^${autonotes}^${climbabil}^${alliancenotes}`;
-    const encodedStr = encode(rawStr);
+    //const encodedStr = encode(rawStr);
 
     document.getElementById("rawstr").innerHTML = "Raw String: " + rawStr;
-    document.getElementById("encodedstr").innerHTML = "Encoded String: " + encodedStr;
+    //document.getElementById("encodedstr").innerHTML = "Encoded String: " + encodedStr;
     strToQr(encodedStr);
 }
 
 function encode(str) {
-    LZMA.compress(str, 1, function on_finish(result,err) {return result}, function on_progress(percent) {});
+    LZMA.compress(str, 1,
+        function (result) {
+            document.getElementById("encodedstr").innerHTML = "Encoded String: " + result;
+            strToQr(result);
+        },
+        function on_progress(percent) {
+            document.getElementById("encodeper").innerHTML = Math.round(percent * 100) + "%";
+        });
 }
 
 function strToQr(str) {
