@@ -9,7 +9,7 @@ function encodeForm() {
     const alliancenotes = document.getElementById("alliancenotes").value;
     const other = document.getElementById("other").value;
 
-    const rawStr = `${teamNumber}$${drivetrain}$${intake}$${shooter}$${autonumber}$${autonotes}$${climbabil}$${alliancenotes}$${other}`.toUpperCase();
+    const rawStr = `${drivetrain}${intake}${shooter}${climbabil}$${teamNumber}$${autonumber}$${autonotes}$${alliancenotes}$${other}`.toUpperCase();
     document.getElementById("rawstr").innerHTML = "Raw String: " + rawStr;
     strToQr(rawStr);
 }
