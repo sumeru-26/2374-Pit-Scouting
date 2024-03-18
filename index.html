@@ -2,14 +2,17 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
     <body>
         <h1>Pit Scouting</h1>
         <hr><br><br>
         <form id="entry_form">
 
-            <label for="team_number">Team Number:</label><br>
+            <label for="team_number">Team Number (NUMBER ONLY):</label><br>
             <input type="text" id="team_number" name="team_number" placeholder="e.g. 2374"><br><br>
+
+            <h2>Robot Info:</h2>
 
             <p>Drive Train:</p>
             <input type="radio" id="swerve" name="drivetrain">
@@ -18,7 +21,7 @@
             <label for="tank">Tank (West Coast)</label><br>
             <input type="radio" id="mecanum" name="drivetrain">
             <label for="mecanum">Mecanum</label><br>
-            <input type="radio" id="other" name="drivetrain">
+            <input type="radio" id="otherdt" name="drivetrain">
             <label for="tank">Other</label><br>
 
             <p>Intake Type:</p>

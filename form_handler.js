@@ -7,27 +7,11 @@ function encodeForm() {
     const autonotes = document.getElementById("autonotes").value;
     const climbabil = getCheckedId("climbabil");
     const alliancenotes = document.getElementById("alliancenotes").value;
+    const other = document.getElementById("other").value;
 
-    const rawStr = `${teamNumber}^${drivetrain}^${intake}^${shooter}^${autonumber}^${autonotes}^${climbabil}^${alliancenotes}`;
-    //const encodedStr = encode(rawStr);
-
+    const rawStr = `${teamNumber}$${drivetrain}$${intake}$${shooter}$${autonumber}$${autonotes}$${climbabil}$${alliancenotes}$${other}`.toUpperCase();
     document.getElementById("rawstr").innerHTML = "Raw String: " + rawStr;
-    //document.getElementById("encodedstr").innerHTML = "Encoded String: " + encodedStr;
-    strToQr(encodedStr);
-}
-
-function encode(str) {
-    console.log("Began encoding");
-    LZMA.compress(str, 1,
-        function (result) {
-            document.getElementById("encodedstr").innerHTML = "Encoded String: " + result;
-            strToQr(result);
-            console.log("Encoded result: " + result);
-        },
-        function on_progress(percent) {
-            document.getElementById("encodeper").innerHTML = Math.round(percent * 100) + "%";
-            console.log("Encoded " + Math.round(percent * 100) + "%");
-        });
+    strToQr(rawStr);
 }
 
 function strToQr(str) {
@@ -42,21 +26,14 @@ function getCheckedId(radioName) {
     const radio = document.getElementsByName(radioName);
     for (let i = 0; i < radio.length; i++) {
         if (radio[i].checked) {
-            return i;
+            return i+1;
         }
     }
+    return 0;
 }
 
 function reset() {
     document.getElementById("entry_form").reset();
     document.getElementById("qrplaceholder").innerHTML = "";
     document.getElementById("encodedstr").innerHTML = "";
-}
-
-function test() {
-    const ele = document.getElementById("swerve");
-    const demo = document.getElementById("demo");
-    if (ele && demo) {
-        demo.innerHTML = ele.labels[0].textContent + "<br>";
-    }
 }
