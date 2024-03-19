@@ -35,5 +35,5 @@ function getCheckedId(radioName) {
 function reset() {
     document.getElementById("entry_form").reset();
     document.getElementById("qrplaceholder").innerHTML = "";
-    document.getElementById("encodedstr").innerHTML = "";
+    document.getElementById("rawstr").innerHTML = "";
 }
