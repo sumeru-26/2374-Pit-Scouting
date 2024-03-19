@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>2374 Pit Scouting</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -70,10 +72,10 @@
             <label for="other">Other notes:</label><br>
             <textarea id="other" name="other" rows="4" cols="50"></textarea><br><br>
         </form>
-        <button onclick="encodeForm()">Generate QR Code</button><br><br>
+        <button onclick="encodeForm()"><b>Generate QR Code</b></button><br><br>
         <div id="qrplaceholder"></div>
         <p id="rawstr"></p>
-        <button onclick="reset()">Reset</button>
+        <button onclick="reset()"><b>Reset</b></button>
         <script src="form_handler.js"></script>
         <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     </body>
